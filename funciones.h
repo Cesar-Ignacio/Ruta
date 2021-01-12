@@ -100,26 +100,57 @@ void CARGAR_CIUDAD()
 {
     CIUDAD obj;
 
-    int provicia=0;
+    char ciudad[5];
+    fflush(stdin);
+    cout<<"C_CIUDAD:";
+    cin.getline(ciudad,5);
 
-    obj.CARGAR();
-
-    provicia=Validar_CP_C();
-
-    if(Existencia_C(obj.getciudad(),provicia)!=1)
+    while(Existencia_C(ciudad)!=0)
     {
-    obj.setcprovincia(provicia);
-
+     fflush(stdin);
+    cout<<"C_CIUDAD:";
+    cin.getline(ciudad,5);
+    }
+    obj.setciudad(ciudad);
+    obj.CARGAR();
+    obj.setcprovincia(Validar_CP_C());
     obj.ALTA();
+    system("pause>null");
+    system("cls");
+}
+
+void ELIMINAR_CIUDAD()
+{
+    CIUDAD obj;
+    char ciudad[5];
+    int pos=0;
+    cout<<"ELIMAR CIUDAD \n"<<endl;
+
+    fflush(stdin);
+    cout<<"C_CIUDAD:";
+    cin.getline(ciudad,5);
+
+    pos=BuscarCiudad(ciudad);
+
+    if(pos!=-1)
+    {
+        obj.LEER(pos);
+
+        obj.setestado(0);
+
+        obj.MODIFICACION(pos);
+
+        cout<<"SE ELIMINO EL REG"<<endl;
     }
     else
     {
-        cout<<"LA CIUDAD YA EXISTE"<<endl;
+    cout<<"NO SE ENCONTRO LA CIUDAD"<<endl;
     }
 
+   system("pause>null");
+   system("cls");
 
-    system("pause>null");
-    system("cls");
+
 }
 
 void MOSTRAR_CIUDAD()
@@ -142,41 +173,25 @@ void MOSTRAR_CIUDAD()
 
 }
 
-int Validar_CP_C()
-{
-
-    int cprovincia=0;
-     cout<<"C_PROVINCIA:";
-     cin>>cprovincia;
-
-     while(Existencia_PV(cprovincia)!=1)
-     {
-     cout<<"C_PROVINCIA:";
-     cin>>cprovincia;
-     }
-
-     return cprovincia;
-
-
-}
-
-int Existencia_C(char *ciudad,int provincia)
+int BuscarCiudad(char *ciudad)
 {
     CIUDAD obj;
+
     int canreg=CantidadReg(ARCHIVO_CIUDAD,sizeof(CIUDAD));
 
 
     for(int x=0;x<canreg;x++)
     {
-     obj.LEER(x);
+        obj.LEER(x);
 
-     if((obj==ciudad) && (obj.getprovincia()==provincia))
-     {
-         return 1;
-     }
+        if(obj==ciudad)
+        {
+            return x;
+        }
     }
 
-    return 0;
+    return -1;
+
 }
 
 ///GENERAL
@@ -200,6 +215,43 @@ int Existencia_PV(int provincia)
      }
 
    return 0;
+}
+
+int Validar_CP_C()
+{
+
+    int cprovincia=0;
+     cout<<"C_PROVINCIA:";
+     cin>>cprovincia;
+
+     while(Existencia_PV(cprovincia)!=1)
+     {
+     cout<<"C_PROVINCIA:";
+     cin>>cprovincia;
+     }
+
+     return cprovincia;
+
+
+}
+
+int Existencia_C(char *ciudad)
+{
+    CIUDAD obj;
+    int canreg=CantidadReg(ARCHIVO_CIUDAD,sizeof(CIUDAD));
+
+
+    for(int x=0;x<canreg;x++)
+    {
+     obj.LEER(x);
+
+     if(obj==ciudad)
+     {
+         return 1;
+     }
+    }
+
+    return 0;
 }
 
 ///OTROS

@@ -67,11 +67,14 @@ public:
 
     int getprovincia(){return cprovincia;}
     char *getciudad(){return Cciudad;}
+    void setciudad(char *ciud){strcpy(Cciudad,ciud);}
     void setcprovincia(int cpro){cprovincia=cpro;}
+    void setestado(int esta){estado=esta;}
     void CARGAR(void);
     void ALTA(void);
     void LEER(int);
     void MOSTRAR(void);
+    void MODIFICACION(int);
 
     int operator==(char *ciudad)
     {
@@ -86,9 +89,7 @@ public:
 
 void CIUDAD::CARGAR()
 {
- fflush(stdin);
- cout<<"C_CIUDAD:";
- cin.getline(Cciudad,5);
+
  fflush(stdin);
  cout<<"NOMBRE:";
  cin.getline(nombre,30);
@@ -138,6 +139,23 @@ void CIUDAD::MOSTRAR()
 
 
 }
+
+void CIUDAD::MODIFICACION(int pos)
+{
+
+    FILE *p;
+    p=fopen(ARCHIVO_CIUDAD,"rb+");
+    if(p==NULL)
+    {
+        exit(1);
+    }
+    fseek(p,sizeof(CIUDAD)*pos,0);
+
+    fwrite(this,sizeof(CIUDAD),1,p);
+
+    fclose(p);
+}
+
 
 class PROVICIA
 {

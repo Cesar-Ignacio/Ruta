@@ -117,7 +117,7 @@ void submenuCiudad()
        }
        if(opc==2)
        {
-
+       ELIMINAR_CIUDAD();
        }
        if(opc==3)
        {
