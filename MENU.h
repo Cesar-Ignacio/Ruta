@@ -155,7 +155,7 @@ void submenuRuta()
 
        if(opc==1)
        {
-
+        CARGAR_RUTA();
        }
        if(opc==2)
        {
@@ -163,8 +163,7 @@ void submenuRuta()
        }
        if(opc==3)
        {
-
-
+        MOSTRAR_RUTA();
        }
        if(opc==4)
        {

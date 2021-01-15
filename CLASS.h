@@ -14,13 +14,97 @@ class RUTA
   float longitud;
   int Truta;///(1: Autopista, 2: Asfalto, 3: Ripio, 4: Mejorado, 5: Tierra)
   int peaje;
+  int estado;
+public:
 
-  public:
 
 
+   void setcruta(char *ruta){strcpy(Cruta,ruta);}
+   void MOSTRAR(void);
+   void CARGAR(void);
+   void ALTA(void);
+   void LEER(int);
+
+   int operator == (char *ruta)
+   {
+       if(strcmp(Cruta,ruta)==0)
+       {
+           return 1;
+       }
+
+       return 0;
+   }
 
 
 };
+
+void RUTA::CARGAR()
+{
+    fflush(stdin);
+    cout<<"C_CIUDAD_INICIO:";
+    cin.getline(CciudadI,5);
+    cout<<"C_CIUDAD_FIN:";
+    cin.getline(CciudadF,5);
+    cout<<"LONGITUD:";
+    cin>>longitud;
+    cout<<"RUTA (1: Autopista, 2: Asfalto, 3: Ripio, 4: Mejorado, 5: Tierra):";
+    cin>>Truta;
+    cout<<"PEAJE 1=si 0=no:";
+    cin>>peaje;
+    estado=1;
+
+}
+
+void RUTA::MOSTRAR()
+{
+    if(estado==1)
+    {
+        cout<<"C_RUTA:"<<Cruta<<endl;
+        cout<<"CIUDAD INICIO:"<<CciudadI<<endl;
+        cout<<"CIUDAD FIN:"<<CciudadF<<endl;
+        cout<<"LONGITUD:"<<endl;
+        cout<<"TRUTA:"<<Truta<<endl;
+        cout<<"PEAJE:" <<peaje<<endl;
+        cout<<"*******************"<<endl;
+    }
+
+
+}
+
+void RUTA::ALTA()
+{
+    FILE *p;
+    p=fopen(ARCHIVO_RUTA,"ab");
+    if(p==NULL)
+    {
+        exit(1);
+    }
+
+    fwrite(this,sizeof(RUTA),1,p);
+
+    fclose(p);
+
+}
+
+
+void RUTA::LEER(int pos)
+{
+
+    FILE *p;
+    p=fopen(ARCHIVO_RUTA,"rb");
+    if(p==NULL)
+    {
+        exit(1);
+    }
+
+    fseek(p,sizeof(RUTA)*pos,0);
+
+    fread(this,sizeof(RUTA),1,p);
+
+    fclose(p);
+
+}
+
 
 class FECHA
 {

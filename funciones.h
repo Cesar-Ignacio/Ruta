@@ -194,6 +194,53 @@ int BuscarCiudad(char *ciudad)
 
 }
 
+/// RUTA
+
+void CARGAR_RUTA()
+{
+    RUTA obj;
+    char Cruta[5];
+
+    fflush(stdin);
+    cout<<"C_RUTA:";
+    cin.getline(Cruta,5);
+/**
+    while(Existencia_R(Cruta)!=0)
+    {
+    fflush(stdin);
+    cout<<"C_RUTA:";
+    cin.getline(Cruta,5);
+    }*/
+    obj.setcruta(Cruta);
+    obj.CARGAR();
+
+    obj.ALTA();
+
+
+    system("pause>null");
+    system("cls");
+
+}
+
+void MOSTRAR_RUTA()
+{
+    RUTA obj;
+
+
+    int canreg=CantidadReg(ARCHIVO_RUTA,sizeof(RUTA));
+
+
+    for(int x=0;x<canreg;x++)
+    {
+        obj.LEER(x);
+        obj.MOSTRAR();
+
+    }
+
+
+}
+
+
 ///GENERAL
 
 int Existencia_PV(int provincia)
@@ -253,6 +300,29 @@ int Existencia_C(char *ciudad)
 
     return 0;
 }
+
+int Existencia_R(char *ruta)
+{
+
+    RUTA obj;
+
+    int canreg=CantidadReg(ARCHIVO_RUTA,sizeof(RUTA));
+
+    for(int x=0;x<canreg;x++)
+    {
+        obj.LEER(x);
+
+        if(obj==ruta)
+        {
+         return 1;
+        }
+
+    }
+
+
+    return 0;
+}
+
 
 ///OTROS
 int CantidadReg(const char *Archivo,int tam)
