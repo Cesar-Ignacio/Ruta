@@ -18,7 +18,8 @@ class RUTA
 public:
 
 
-
+   void setciudadI(char *ciuI){strcpy(CciudadI,ciuI);}
+   void setciudadF(char *ciuF){strcpy(CciudadF,ciuF);}
    void setcruta(char *ruta){strcpy(Cruta,ruta);}
    void MOSTRAR(void);
    void CARGAR(void);
@@ -40,11 +41,7 @@ public:
 
 void RUTA::CARGAR()
 {
-    fflush(stdin);
-    cout<<"C_CIUDAD_INICIO:";
-    cin.getline(CciudadI,5);
-    cout<<"C_CIUDAD_FIN:";
-    cin.getline(CciudadF,5);
+
     cout<<"LONGITUD:";
     cin>>longitud;
     cout<<"RUTA (1: Autopista, 2: Asfalto, 3: Ripio, 4: Mejorado, 5: Tierra):";

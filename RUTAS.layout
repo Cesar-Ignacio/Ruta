@@ -2,28 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="CLASS.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+	<File name="PROTOTIPO.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="345" topLine="36" />
+			<Cursor1 position="819" topLine="2" />
 		</Cursor>
-		<Folding>
-			<Collapse line="58" />
-			<Collapse line="74" />
-			<Collapse line="90" />
-			<Collapse line="141" />
-			<Collapse line="174" />
-			<Collapse line="184" />
-			<Collapse line="198" />
-			<Collapse line="214" />
-			<Collapse line="227" />
-			<Collapse line="244" />
-			<Collapse line="277" />
-			<Collapse line="289" />
-		</Folding>
 	</File>
 	<File name="MENU.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2725" topLine="23" />
+			<Cursor1 position="2725" topLine="27" />
 		</Cursor>
 		<Folding>
 			<Collapse line="13" />
@@ -31,10 +17,13 @@
 			<Collapse line="95" />
 		</Folding>
 	</File>
-	<File name="PROTOTIPO.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="CLASS.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="819" topLine="2" />
+			<Cursor1 position="723" topLine="30" />
 		</Cursor>
+		<Folding>
+			<Collapse line="55" />
+		</Folding>
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>

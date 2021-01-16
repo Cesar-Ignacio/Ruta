@@ -199,19 +199,45 @@ int BuscarCiudad(char *ciudad)
 void CARGAR_RUTA()
 {
     RUTA obj;
-    char Cruta[5];
+    char Cruta[5],CciudadI[5],CciudadF[5];
 
     fflush(stdin);
     cout<<"C_RUTA:";
     cin.getline(Cruta,5);
-/**
+
     while(Existencia_R(Cruta)!=0)
     {
     fflush(stdin);
     cout<<"C_RUTA:";
     cin.getline(Cruta,5);
-    }*/
+    }
     obj.setcruta(Cruta);
+
+    fflush(stdin);
+    cout<<"C_CIUDAD_INICIO:";
+    cin.getline(CciudadI,5);
+
+
+    while(Existencia_C(CciudadI)!=1)
+    {
+    fflush(stdin);
+    cout<<"C_CIUDAD_INICIO:";
+    cin.getline(CciudadI,5);
+    }
+
+    fflush(stdin);
+    cout<<"C_CIUDAD_FIN:";
+    cin.getline(CciudadF,5);
+
+    while(Existencia_C(CciudadF)!=1)
+    {
+    fflush(stdin);
+    cout<<"C_CIUDAD_FIN:";
+    cin.getline(CciudadF,5);
+    }
+    obj.setciudadI(CciudadI);
+    obj.setciudadF(CciudadF);
+
     obj.CARGAR();
 
     obj.ALTA();
@@ -236,7 +262,8 @@ void MOSTRAR_RUTA()
         obj.MOSTRAR();
 
     }
-
+system("pause>null");
+system("cls");
 
 }
 
@@ -308,6 +335,9 @@ int Existencia_R(char *ruta)
 
     int canreg=CantidadReg(ARCHIVO_RUTA,sizeof(RUTA));
 
+    if(canreg!=-1)
+    {
+
     for(int x=0;x<canreg;x++)
     {
         obj.LEER(x);
@@ -319,6 +349,7 @@ int Existencia_R(char *ruta)
 
     }
 
+    }
 
     return 0;
 }
@@ -331,7 +362,7 @@ FILE *p;
 p=fopen(Archivo,"rb");
 if(p==NULL)
 {
-    exit(1);
+    return -1;
 }
 
 fseek(p,0,2);
