@@ -159,7 +159,7 @@ void submenuRuta()
        }
        if(opc==2)
        {
-
+        ELIMINAR_RUTA();
        }
        if(opc==3)
        {

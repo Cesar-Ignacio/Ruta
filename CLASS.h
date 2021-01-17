@@ -21,10 +21,12 @@ public:
    void setciudadI(char *ciuI){strcpy(CciudadI,ciuI);}
    void setciudadF(char *ciuF){strcpy(CciudadF,ciuF);}
    void setcruta(char *ruta){strcpy(Cruta,ruta);}
+   void setestado(int est){estado=est;}
    void MOSTRAR(void);
    void CARGAR(void);
    void ALTA(void);
    void LEER(int);
+   void MODIFICACION(int);
 
    int operator == (char *ruta)
    {
@@ -59,7 +61,7 @@ void RUTA::MOSTRAR()
         cout<<"C_RUTA:"<<Cruta<<endl;
         cout<<"CIUDAD INICIO:"<<CciudadI<<endl;
         cout<<"CIUDAD FIN:"<<CciudadF<<endl;
-        cout<<"LONGITUD:"<<endl;
+        cout<<"LONGITUD:"<<longitud<<endl;
         cout<<"TRUTA:"<<Truta<<endl;
         cout<<"PEAJE:" <<peaje<<endl;
         cout<<"*******************"<<endl;
@@ -83,7 +85,6 @@ void RUTA::ALTA()
 
 }
 
-
 void RUTA::LEER(int pos)
 {
 
@@ -101,6 +102,24 @@ void RUTA::LEER(int pos)
     fclose(p);
 
 }
+
+void RUTA::MODIFICACION(int pos)
+{
+    FILE *p;
+    p=fopen(ARCHIVO_RUTA,"rb+");
+    if(p==NULL)
+    {
+        exit(1);
+    }
+
+    fseek(p,sizeof(RUTA)*pos,0);
+
+    fwrite(this,sizeof(RUTA),1,p);
+
+    fclose(p);
+
+}
+
 
 
 class FECHA
@@ -290,7 +309,6 @@ void PROVICIA::MOSTRAR()
    cout<<"COD_PROVINCIA:"<< cprovincia<<endl;
    cout<<"NOMBRE:"<<nombre<<endl;
    cout<<"REGION:"<<region<<endl;
-   cout<<"estafo:"<<estado<<endl;
    cout<<"********************"<<endl;
   }
 

@@ -213,6 +213,70 @@ void CARGAR_RUTA()
     }
     obj.setcruta(Cruta);
 
+    Cargar_Ciudades(CciudadI,CciudadF);
+
+    obj.setciudadI(CciudadI);
+    obj.setciudadF(CciudadF);
+
+    obj.CARGAR();
+
+    obj.ALTA();
+
+
+    system("pause>null");
+    system("cls");
+
+}
+
+void ELIMINAR_RUTA()
+{
+
+  RUTA obj;
+
+  char cruta[5];
+  int pos=0;
+  fflush(stdin);
+  cout<<"INGRESE C_RUTA:";
+  cin.getline(cruta,5);
+  pos=BuscarRuta(cruta);
+  if(pos!=-1)
+  {
+      obj.LEER(pos);
+      obj.setestado(0);
+      obj.MODIFICACION(pos);
+      cout<<"SE ELIMINO EL REG"<<endl;
+  }
+  else
+  {
+      cout<<"NO SE ENCONTRO EL REG"<<endl;
+  }
+
+  system("pause>null");
+  system("cls");
+}
+
+void MOSTRAR_RUTA()
+{
+    RUTA obj;
+
+
+    int canreg=CantidadReg(ARCHIVO_RUTA,sizeof(RUTA));
+
+
+    for(int x=0;x<canreg;x++)
+    {
+        obj.LEER(x);
+        obj.MOSTRAR();
+
+    }
+system("pause>null");
+system("cls");
+
+}
+
+void Cargar_Ciudades(char *CciudadI,char *CciudadF)
+{
+
     fflush(stdin);
     cout<<"C_CIUDAD_INICIO:";
     cin.getline(CciudadI,5);
@@ -235,36 +299,28 @@ void CARGAR_RUTA()
     cout<<"C_CIUDAD_FIN:";
     cin.getline(CciudadF,5);
     }
-    obj.setciudadI(CciudadI);
-    obj.setciudadF(CciudadF);
 
-    obj.CARGAR();
-
-    obj.ALTA();
-
-
-    system("pause>null");
-    system("cls");
 
 }
 
-void MOSTRAR_RUTA()
+int BuscarRuta(char *ruta)
 {
     RUTA obj;
-
 
     int canreg=CantidadReg(ARCHIVO_RUTA,sizeof(RUTA));
 
 
     for(int x=0;x<canreg;x++)
     {
-        obj.LEER(x);
-        obj.MOSTRAR();
+       obj.LEER(x);
+
+       if(obj==ruta)
+       {
+           return x;
+       }
 
     }
-system("pause>null");
-system("cls");
-
+    return -1;
 }
 
 

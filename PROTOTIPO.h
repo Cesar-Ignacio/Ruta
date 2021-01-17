@@ -22,8 +22,11 @@ int BuscarCiudad(char *);
 ///PROTOTTIPO DE RUTA
 
 void CARGAR_RUTA(void);
+void ELIMINAR_RUTA(void);
+void Cargar_Ciudades(char *,char *);
 void MOSTRAR_RUTA(void);
 
+int BuscarRuta(char *);
 
 ///GENERAL
 int Validar_CP_C(void);///VALIDAMOS LA PROVINCIA
