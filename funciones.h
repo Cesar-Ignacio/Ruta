@@ -7,14 +7,15 @@ void CARGAR_PROVINCIA()
     PROVICIA objP;
     int cprovincia;
     cout<<"C_ PROVINCIA:";///HACER UNA FUCNCION PARA VALIDAR C_PROVINCIA
-    cin>>cprovincia;
+    cprovincia=validarNumero();
 
     while(Existencia_PV(cprovincia))
     {
-    cout<<"C_ PROVINCIA:";///HACER UNA FUCNCION PARA VALIDAR C_PROVINCIA
-    cin>>cprovincia;
 
+    cout<<"C_ PROVINCIA:";///HACER UNA FUCNCION PARA VALIDAR C_PROVINCIA
+    cprovincia=validarNumero();
     }
+
     objP.setcprovincia(cprovincia);
     objP.ALTA();
 
@@ -91,6 +92,49 @@ int BuscarProvincia(int cpro)
     }
 
   return -1;
+
+}
+
+int validarNumero()
+{
+  int numero;
+  numero=filtro();
+
+  while(numero==-1)
+  {
+    numero=filtro();
+  }
+
+  return numero;
+}
+
+int filtro()
+{
+    int valor;
+    int z=0;
+
+    std::cin >> valor;
+
+    if( !std::cin.good() )///SE CUMPLE LA CONDICION CUANDO SE INGRESA UN CARACTER
+    {
+
+
+      gotoxy(50,1);cout<<"ERROR"<<endl;
+      ///atencion1("ERROR : ",87,8,"SE A DETECTADOS UN CARACTER ",87,9,"O A INGRESADO UN ALGO MAL !!!",87,10);
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+
+      Sleep(5000);
+
+      gotoxy(50,1);cout<<"        "<<endl;
+     /// atencion1("",88,8,"",88,9,"",88,10);///BORRAMOS
+
+      return -1;
+    }
+    else
+     {return valor;}
+
+
 
 }
 
@@ -430,4 +474,12 @@ fclose(p);
 return canreg;
 }
 
+void gotoxy(int x, int y)
+{
+    HANDLE hcon= GetStdHandle(STD_OUTPUT_HANDLE);
+    COORD dwPos;
+    dwPos.X=x;
+    dwPos.Y=y;
+    SetConsoleCursorPosition(hcon,dwPos);
+}
 #endif // FUNCIONES_H_INCLUDED

@@ -9,6 +9,9 @@ void ELIMINAR_PROVINCIA(void);
 void MOSTRAR_PROVINCIA(void);
 
 int BuscarProvincia(int);
+int filtro(void);
+int validarNumero(void);
+
 
 ///PROTOTIPO DE CIUDAD
 
@@ -37,6 +40,8 @@ int Existencia_R(char *);///DEVUELVE 0=NO EXISTE 1=EXISTE se envia como parametr
 ///OTROS
 
 int CantidadReg(const char *,int);
+void gotoxy(int,int);
+
 
 ///PUNTOS
 void Punto_A(void);
