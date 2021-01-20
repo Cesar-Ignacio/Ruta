@@ -18,6 +18,15 @@ const char *ARCHIVO_RUTA={"ruta.dat"};
 #include "MENU.h"
 
 
+///PROTOTIPO
+void Punto_A(void);
+int NombreCiudad(char *,char *);
+void NombreProvincia(int,char *);
+
+void Punto_B(void);
+void Punto_C(void);
+
+
 ///FUNCION PRINCIPAL
 int main()
 {
@@ -41,7 +50,7 @@ int main()
 
         if(opc==1)
         {
-
+        Punto_A();
         }
         if(opc==2)
         {
@@ -77,8 +86,84 @@ void Punto_A()
     /**La ruta más larga, indicando los nombres de la ciudad y la provincia de
 origen y de fin.*/
 
+  RUTA obj;
+
+
+  obj.LEER(0);
+
+  int c_prov=0,pos=0,canreg=CantidadReg(ARCHIVO_RUTA,sizeof(RUTA));
+  float longitud=obj.getlongitud();
+  char  nombre[30];
+
+
+  for(int x=1;x<canreg;x++)
+  {
+      obj.LEER(x);
+
+      if(obj>longitud)
+      {
+        pos=x;
+        longitud=obj.getlongitud();
+      }
+
+  }
+  obj.LEER(pos);
+
+  cout<<"RUTA MAS LARGA :"<< obj.getcruta()<<endl;
+
+  c_prov=NombreCiudad(obj.getciudadI(),nombre);
+
+  cout<<"CIUDAD DE INICIO:"<< nombre<<endl;
+
+  NombreProvincia(c_prov,nombre);
+
+  cout<<"PROVINCIA:"<<nombre<<endl;
+
+  c_prov=NombreCiudad(obj.getciudadF(),nombre);
+
+  cout<<"CIUDAD DE FIN:"<< nombre<<endl;
+
+  NombreProvincia(c_prov,nombre);
+  cout<<"PROVINCIA:"<<nombre<<endl;
+
+  system("pause>null");
+  system("cls");
+}
+
+int NombreCiudad(char *ciudad,char *nombre)
+{
+    CIUDAD obj;
+    int canreg=CantidadReg(ARCHIVO_CIUDAD,sizeof(CIUDAD));
+    for(int x=0;x<canreg;x++)
+    {
+        obj.LEER(x);
+
+        if(obj==ciudad)
+        {
+         strcpy(nombre,obj.getnombre());
+         return obj.getprovincia();
+        }
+    }
+}
+
+void NombreProvincia(int c_pro, char *nombre)
+{
+    PROVICIA obj;
+
+    int canreg=CantidadReg(ARCHIVO_PROVINCIA,sizeof(PROVICIA));
+
+    for(int x=0;x<canreg;x++)
+    {
+        obj.LEER(x);
+
+        if(obj==c_pro)
+        {
+           strcpy(nombre,obj.getnombre());
+        }
+    }
 
 }
+
 
 void Punto_B()
 {

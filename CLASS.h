@@ -18,6 +18,10 @@ class RUTA
 public:
 
 
+   char *getciudadI(){return CciudadI;}
+   char *getciudadF(){return CciudadF;}
+   float getlongitud(void){return longitud;}
+   char *getcruta(void){return Cruta;}
    void setciudadI(char *ciuI){strcpy(CciudadI,ciuI);}
    void setciudadF(char *ciuF){strcpy(CciudadF,ciuF);}
    void setcruta(char *ruta){strcpy(Cruta,ruta);}
@@ -27,6 +31,7 @@ public:
    void ALTA(void);
    void LEER(int);
    void MODIFICACION(int);
+   void ruta(void);
 
    int operator == (char *ruta)
    {
@@ -38,6 +43,16 @@ public:
        return 0;
    }
 
+   int operator >(float longitud)
+   {
+
+       if(this->longitud>longitud)
+       {
+           return 1;
+       }
+       return 0;
+   }
+
 
 };
 
@@ -46,8 +61,7 @@ void RUTA::CARGAR()
 
     cout<<"LONGITUD:";
     cin>>longitud;
-    cout<<"RUTA (1: Autopista, 2: Asfalto, 3: Ripio, 4: Mejorado, 5: Tierra):";
-    cin>>Truta;
+    ruta();
     cout<<"PEAJE 1=si 0=no:";
     cin>>peaje;
     estado=1;
@@ -120,7 +134,18 @@ void RUTA::MODIFICACION(int pos)
 
 }
 
+void RUTA::ruta()
+{
+    cout<<"RUTA (1: Autopista, 2: Asfalto, 3: Ripio, 4: Mejorado, 5: Tierra):";
+    cin>>Truta;
 
+    while(Truta<=0 || Truta>=6)
+    {
+    cout<<"RUTA (1: Autopista, 2: Asfalto, 3: Ripio, 4: Mejorado, 5: Tierra):";
+    cin>>Truta;
+    }
+
+}
 
 class FECHA
 {
@@ -167,6 +192,7 @@ public:
 
     int getprovincia(){return cprovincia;}
     char *getciudad(){return Cciudad;}
+    char *getnombre(){return nombre;}
     void setciudad(char *ciud){strcpy(Cciudad,ciud);}
     void setcprovincia(int cpro){cprovincia=cpro;}
     void setestado(int esta){estado=esta;}
@@ -269,6 +295,7 @@ public:
 
 
     int getestado(){return estado;}
+    char *getnombre(){return nombre;}
     void setcprovincia(int prov){cprovincia=prov;}
     void setestado(int esta){estado=esta;}
     void REGI(void);

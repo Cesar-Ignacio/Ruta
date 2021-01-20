@@ -1,20 +1,21 @@
 # depslib dependency file v1.0
-1610676047 source:c:\users\usuario\downloads\codigos\rutas\main.cpp
+1611111488 source:c:\users\usuario\downloads\codigos\rutas\main.cpp
 	<iostream>
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
 	<conio.h>
+	<limits>
 	"CLASS.h"
 	"PROTOTIPO.h"
 	"funciones.h"
 	"MENU.h"
 
-1611000627 c:\users\usuario\downloads\codigos\rutas\funciones.h
+1611000713 c:\users\usuario\downloads\codigos\rutas\funciones.h
 
-1610849620 c:\users\usuario\downloads\codigos\rutas\class.h
+1611111344 c:\users\usuario\downloads\codigos\rutas\class.h
 
-1611000532 c:\users\usuario\downloads\codigos\rutas\prototipo.h
+1611000700 c:\users\usuario\downloads\codigos\rutas\prototipo.h
 
 1610847991 c:\users\usuario\downloads\codigos\rutas\menu.h
 
