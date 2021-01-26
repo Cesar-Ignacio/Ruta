@@ -428,4 +428,30 @@ void PROVICIA::REGI()
 }
 
 
+class CONTROL
+{
+  private:
+
+    FECHA fch;
+    char cruta[5];
+    int estado;
+
+  public:
+
+    void Cargar(void);
+
+
+
+};
+
+void CONTROL::Cargar()
+{
+    cout<<"C_ruta:";
+    cin.getlineI(cruta.)
+
+
+}
+
+
+
 #endif // CLASS_H_INCLUDED

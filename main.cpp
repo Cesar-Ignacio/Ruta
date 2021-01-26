@@ -171,6 +171,9 @@ void Punto_B()
 intransitable esa ruta en el año 2015. No deben aparecer las rutas que
 estuvieron transitables durante todo el año.*/
 
+
+
+
 }
 
 void Punto_C()
