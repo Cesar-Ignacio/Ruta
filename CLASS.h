@@ -160,24 +160,28 @@ public:
     int getmes(){return mes;}
     int getanio(){return anio;}
 
+    void CARGAR(void);
+    void MOSTRAR(void);
 };
 
 
-class ESTADO
+void FECHA::CARGAR()
+{
+    cout<<"DIA:";
+    cin>>dia;
+    cout<<"MES:";
+    cin>>mes;
+    cout<<"ANIO:";
+    cin>>anio;
+}
+
+void FECHA::MOSTRAR()
 {
 
-private:
-
-   FECHA fch;
-   char Cruta[5];
-   int estado;/// (1: Transitable, 2: Intransitable)
-
-
-public:
-
-
-};
-
+    cout<<"DIA:"<< dia<<endl;
+    cout<<"MES:"<<mes<<endl;
+    cout<<"ANIO:"<<anio<<endl;
+}
 
 class CIUDAD
 {
@@ -439,17 +443,26 @@ class CONTROL
   public:
 
     void Cargar(void);
-
-
+    void MOSTRAR(void);
 
 };
 
 void CONTROL::Cargar()
 {
+    fch.CARGAR();
+    fflush(stdin);
     cout<<"C_ruta:";
-    cin.getlineI(cruta.)
+    cin.getline(cruta,5);
+    cout<<"ESTADO:";
+    cin>>estado;
+}
 
-
+void CONTROL::MOSTRAR()
+{
+    fch.MOSTRAR();
+    cout<<"C_RUTA:"<<endl;
+    cout<<"ESTADO:"<<estado<<endl;
+    cout<<"*******************"<<endl;
 }
 
 

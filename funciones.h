@@ -367,6 +367,15 @@ int BuscarRuta(char *ruta)
     return -1;
 }
 
+void menu_estado()
+{
+
+CONTROL obj;
+obj.Cargar();
+obj.MOSTRAR();
+
+}
+
 
 ///GENERAL
 

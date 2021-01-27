@@ -43,6 +43,7 @@ int main()
         cout<<"2- PUNTO B"<<endl;
         cout<<"3- PUNTO C"<<endl;
         cout<<"4- CARGAR DATOS"<<endl;
+        cout<<"5- ESTADO"<<endl;
         cout<<"***************"<<endl;
         cin>>opc;
 
@@ -64,6 +65,10 @@ int main()
         if(opc==4)
         {
             submenu();
+        }
+        if(opc==5)
+        {
+            menu_estado();
         }
         if(opc==0)
         {

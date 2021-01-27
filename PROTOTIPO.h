@@ -31,6 +31,11 @@ void MOSTRAR_RUTA(void);
 
 int BuscarRuta(char *);
 
+
+///PROTORIPO ESTADO
+
+void menu_estado(void);
+
 ///GENERAL
 int Validar_CP_C(void);///VALIDAMOS LA PROVINCIA
 int Existencia_C(char *);///DEVUELVE 0=NO EXISTE 1=EXISTE , se envia como parametros el codigo de la coidad
