@@ -433,8 +433,25 @@ void Mostrar_Estado()
    }
 
 
-    system("cls");
+
     system("pause>null");
+    system("cls");
+}
+
+void Mostrar_A_N()
+{
+    NUEVO obj;
+    int canreg=CantidadReg(ARCHIVO_NUEVA,sizeof(NUEVO));
+ cout<<"ANIO 2015"<<endl;
+    for(int x=0;x<canreg;x++)
+    {
+        obj.LEER(x);
+        obj.MOSTRAR();
+
+    }
+
+    system("pause>null");
+    system("cls");
 }
 
 

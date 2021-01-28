@@ -11,7 +11,7 @@ const char *ARCHIVO_PROVINCIA={"provincia.dat"};
 const char *ARCHIVO_CIUDAD={"ciudad.dat"};
 const char *ARCHIVO_RUTA={"ruta.dat"};
 const char *ARCHIVO_ESTADO={"Estado.dat"};
-
+const char *ARCHIVO_NUEVA={"Nuevo.dat"};
 
 #include "CLASS.h"
 #include "PROTOTIPO.h"
@@ -25,6 +25,8 @@ int NombreCiudad(char *,char *);
 void NombreProvincia(int,char *);
 
 void Punto_B(void);
+int Cant_D_Intr(char *);
+
 void Punto_C(void);
 
 
@@ -45,6 +47,7 @@ int main()
         cout<<"3- PUNTO C"<<endl;
         cout<<"4- CARGAR DATOS"<<endl;
         cout<<"5- ESTADO"<<endl;
+        cout<<"6- NUEVO"<<endl;
         cout<<"***************"<<endl;
         cin>>opc;
 
@@ -56,11 +59,12 @@ int main()
         }
         if(opc==2)
         {
-
-
+        Punto_B();
         }
         if(opc==3)
         {
+
+
 
         }
         if(opc==4)
@@ -177,8 +181,62 @@ void Punto_B()
 intransitable esa ruta en el año 2015. No deben aparecer las rutas que
 estuvieron transitables durante todo el año.*/
 
+   RUTA obj;
+   NUEVO objN;
+
+  FILE *p;
+
+  p=fopen(ARCHIVO_NUEVA,"wb");
+  if(p==NULL)
+  {
+      exit(1);
+  }
 
 
+   int cantidad_dias=0,canreg=CantidadReg(ARCHIVO_RUTA,sizeof(RUTA));
+
+    for(int x=0;x<canreg;x++)
+   {
+    cantidad_dias=0;
+    obj.LEER(x);
+
+    cantidad_dias=Cant_D_Intr(obj.getcruta());
+
+    if(cantidad_dias!=0)
+    {
+     objN.setcruta(obj.getcruta());
+     objN.setcadias(cantidad_dias);
+
+     fwrite(&objN,sizeof(NUEVO),1,p);
+
+    }
+
+   }
+    fclose(p);
+   Mostrar_A_N();
+}
+
+int Cant_D_Intr(char *c_ruta)
+{
+    CONTROL obj;
+
+    int can_dias=0,canreg=CantidadReg(ARCHIVO_ESTADO,sizeof(CONTROL));
+
+
+    for(int x=0;x<canreg;x++)
+    {
+        obj.LEER(x);
+
+        if(obj==2015 && obj==c_ruta)
+        {
+            if(obj.getestado()==0)
+            {
+                can_dias++;
+            }
+        }
+    }
+
+    return can_dias;
 
 }
 

@@ -38,11 +38,17 @@ void menu_estado(void);
 void Cargar_Estado(void);
 void Mostrar_Estado(void);
 
+void Mostrar_A_N(void);
+
+
 ///GENERAL
+
 int Validar_CP_C(void);///VALIDAMOS LA PROVINCIA
 int Existencia_C(char *);///DEVUELVE 0=NO EXISTE 1=EXISTE , se envia como parametros el codigo de la coidad
 int Existencia_PV(int);///DEVUELVE 0=NO EXISTE 1=EXISTE se envia como parametros el codigo de la provincia
 int Existencia_R(char *);///DEVUELVE 0=NO EXISTE 1=EXISTE se envia como parametros el codigo de ruta
+
+
 
 ///OTROS
 

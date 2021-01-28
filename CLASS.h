@@ -442,10 +442,29 @@ class CONTROL
 
   public:
 
+
+    int getestado(void){return estado;}
     void Cargar(void);
     void MOSTRAR(void);
     void ALTA(void);
     void LEER(int);
+
+    int operator==(int anio)
+    {
+        if(this->fch.getanio()==anio)
+        {
+            return 1;
+        }
+        return 0;
+    }
+    int operator==(char *c_ruta)
+    {
+        if(strcmp(cruta,c_ruta)==0)
+        {
+            return 1;
+        }
+        return 0;
+    }
 
 };
 
@@ -502,5 +521,65 @@ void CONTROL::LEER(int pos)
     fclose(p);
 }
 
+
+class NUEVO
+{
+
+private:
+
+    char c_ruta[5];
+    int c_dias;
+    int estado;
+
+public:
+
+    void setcruta(char *crut){strcpy(c_ruta,crut);}
+    void setcadias(int cant){c_dias=cant;}
+
+    void ALTA(void);
+    void LEER(int);
+    void MOSTRAR(void);
+
+
+};
+
+void NUEVO::ALTA()
+{
+  FILE *p;
+  p=fopen(ARCHIVO_NUEVA,"wb");
+  if(p==NULL)
+  {
+      exit(1);
+  }
+
+  fwrite(this,sizeof(NUEVO),1,p);
+
+  fclose(p);
+
+}
+
+void NUEVO::LEER(int pos)
+{
+    FILE *p;
+    p=fopen(ARCHIVO_NUEVA,"rb");
+    if(p==NULL)
+    {
+        exit(1);
+    }
+    fseek(p,sizeof(NUEVO)*pos,0);
+
+    fread(this,sizeof(NUEVO),1,p);
+
+    fclose(p);
+}
+
+void NUEVO::MOSTRAR()
+{
+
+    cout<<"C_RUTA:"<<c_ruta<<endl;
+    cout<<"D_INTRANSITABLES:"<<c_dias<<endl;
+    cout<<"***************************"<<endl;
+
+}
 
 #endif // CLASS_H_INCLUDED
