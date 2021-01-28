@@ -35,6 +35,8 @@ int BuscarRuta(char *);
 ///PROTORIPO ESTADO
 
 void menu_estado(void);
+void Cargar_Estado(void);
+void Mostrar_Estado(void);
 
 ///GENERAL
 int Validar_CP_C(void);///VALIDAMOS LA PROVINCIA

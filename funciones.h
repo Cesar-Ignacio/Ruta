@@ -371,9 +371,70 @@ void menu_estado()
 {
 
 CONTROL obj;
-obj.Cargar();
-obj.MOSTRAR();
 
+int opc=1;
+
+while(opc!=0)
+{
+
+    cout<<"MUNE"<<endl;
+    cout<<"**************"<<endl;
+    cout<<"1_CARGAR"<<endl;
+    cout<<"2_MOSTRAR"<<endl;
+    cout<<"0_SALIR"<<endl;
+    cout<<"**************"<<endl;
+    cin>>opc;
+    system("cls");
+    if(opc==1)
+    {
+     Cargar_Estado();
+    }
+    if(opc==2)
+    {
+     Mostrar_Estado();
+    }
+
+}
+
+system("cls");
+system("pause>null");
+
+}
+
+void Cargar_Estado()
+{
+
+  CONTROL obj;
+
+
+  cout<<"ESTADO DE RUTA"<<endl;
+
+  obj.ALTA();
+
+  system("cls");
+  system("pause>null");
+
+}
+
+void Mostrar_Estado()
+{
+    CONTROL obj;
+
+    int canreg=CantidadReg(ARCHIVO_ESTADO,sizeof(CONTROL));
+
+    cout<<"ESATDO DE RUTAS"<<endl;
+
+
+   for(int x=0;x<canreg;x++)
+   {
+
+       obj.LEER(x);
+       obj.MOSTRAR();
+   }
+
+
+    system("cls");
+    system("pause>null");
 }
 
 

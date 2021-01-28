@@ -10,6 +10,7 @@ using namespace std;
 const char *ARCHIVO_PROVINCIA={"provincia.dat"};
 const char *ARCHIVO_CIUDAD={"ciudad.dat"};
 const char *ARCHIVO_RUTA={"ruta.dat"};
+const char *ARCHIVO_ESTADO={"Estado.dat"};
 
 
 #include "CLASS.h"

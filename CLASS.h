@@ -444,6 +444,8 @@ class CONTROL
 
     void Cargar(void);
     void MOSTRAR(void);
+    void ALTA(void);
+    void LEER(int);
 
 };
 
@@ -460,11 +462,45 @@ void CONTROL::Cargar()
 void CONTROL::MOSTRAR()
 {
     fch.MOSTRAR();
-    cout<<"C_RUTA:"<<endl;
+    cout<<"C_RUTA:"<<cruta<<endl;
     cout<<"ESTADO:"<<estado<<endl;
     cout<<"*******************"<<endl;
 }
 
+
+void CONTROL::ALTA()
+{
+    Cargar();
+
+    FILE *p;
+    p=fopen(ARCHIVO_ESTADO,"ab");
+    if(p==NULL)
+    {
+
+        exit(1);
+    }
+
+    fwrite(this,sizeof(CONTROL),1,p);
+
+    fclose(p);
+
+}
+
+void CONTROL::LEER(int pos)
+{
+    FILE *p;
+    p=fopen(ARCHIVO_ESTADO,"rb");
+    if(p==NULL)
+    {
+        exit(1);
+    }
+
+    fseek(p,sizeof(CONTROL)*pos,0);
+
+    fread(this,sizeof(CONTROL),1,p);
+
+    fclose(p);
+}
 
 
 #endif // CLASS_H_INCLUDED
