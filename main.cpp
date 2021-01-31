@@ -28,8 +28,9 @@ void Punto_B(void);
 int Cant_D_Intr(char *);
 
 void Punto_C(void);
-
-
+void Vcero(int *,int);
+void CargarVector(int *);
+void MostramosV(int *,int);
 ///FUNCION PRINCIPAL
 int main()
 {
@@ -63,9 +64,7 @@ int main()
         }
         if(opc==3)
         {
-
-
-
+        Punto_C();
         }
         if(opc==4)
         {
@@ -79,7 +78,6 @@ int main()
         {
             return 0;
         }
-
 
 
     }
@@ -240,9 +238,60 @@ int Cant_D_Intr(char *c_ruta)
 
 }
 
+
+void Vcero(int *v,int tam)
+{
+
+    for(int x=0;x<tam;x++)
+    {
+        v[x]=0;
+    }
+
+}
+
+void CargarVector(int *v)
+{
+    RUTA obj;
+
+    int canreg=CantidadReg(ARCHIVO_RUTA,sizeof(RUTA));
+
+    for(int x=0;x<canreg;x++)
+    {
+        obj.LEER(x);
+        if(obj=1)
+        {
+            v[obj.getruta()-1]+=1;
+        }
+    }
+
+
+}
+
+void MostramosV(int *v,int tam)
+{
+    for(int x=0;x<tam;x++)
+    {
+        cout<<"TIPO DE RUTA:"<<x+1<<endl;
+        cout<<"CANTIDAD:"<<v[x]<<endl;
+        cout<<"*******************"<<endl;
+
+    }
+
+
+}
 void Punto_C()
 {
     /**) La cantidad de rutas de cada tipo.*/
 
+    int vruta[5];
+
+    Vcero(vruta,5);
+
+    CargarVector(vruta);
+
+    MostramosV(vruta,5);
+
+    system("pause>null");
+    system("cls");
 }
 

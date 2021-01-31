@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1611872945 source:c:\users\usuario\downloads\codigos\rutas\main.cpp
+1612059032 source:c:\users\usuario\downloads\codigos\rutas\main.cpp
 	<iostream>
 	<stdio.h>
 	<stdlib.h>
@@ -13,7 +13,7 @@
 
 1611870403 c:\users\usuario\downloads\codigos\rutas\funciones.h
 
-1611871558 c:\users\usuario\downloads\codigos\rutas\class.h
+1612058684 c:\users\usuario\downloads\codigos\rutas\class.h
 
 1611870004 c:\users\usuario\downloads\codigos\rutas\prototipo.h
 

@@ -22,6 +22,7 @@ public:
    char *getciudadF(){return CciudadF;}
    float getlongitud(void){return longitud;}
    char *getcruta(void){return Cruta;}
+   int getruta(void){return Truta;}
    void setciudadI(char *ciuI){strcpy(CciudadI,ciuI);}
    void setciudadF(char *ciuF){strcpy(CciudadF,ciuF);}
    void setcruta(char *ruta){strcpy(Cruta,ruta);}
@@ -52,7 +53,14 @@ public:
        }
        return 0;
    }
-
+   int operator=(int esta)
+   {
+       if(estado==esta)
+       {
+           return 1;
+       }
+       return 0;
+   }
 
 };
 
